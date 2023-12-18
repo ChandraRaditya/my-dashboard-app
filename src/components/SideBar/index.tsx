@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Icon from "@/components/Icons";
+import Icon from "@/components/Icon";
 
 interface navigation {
   id: number;
@@ -10,43 +10,42 @@ interface navigation {
   link: string;
 }
 
-export default function SideBar() {
+const SideBar = () => {
   const [active, setActive] = useState(1);
   const navigation = [
     {
       id: 1,
-      icon: "home",
+      icon: "icons/home",
       isActive: false,
       link: "/",
     },
     {
       id: 2,
-      icon: "notification",
+      icon: "icons/notification",
       isActive: false,
       link: "/notification",
     },
     {
       id: 3,
-      icon: "schedule",
+      icon: "icons/schedule",
       isActive: false,
       link: "/notification",
     },
     {
       id: 4,
-      icon: "customer",
+      icon: "icons/customer",
       isActive: false,
       link: "/notification",
     },
     {
       id: 5,
-      icon: "transaction",
-
+      icon: "icons/transaction",
       isActive: false,
       link: "/transaction",
     },
     {
       id: 6,
-      icon: "setting",
+      icon: "icons/setting",
       isActive: false,
       link: "/setting",
     },
@@ -54,16 +53,16 @@ export default function SideBar() {
 
   return (
     <div className="py-5 flex flex-col items-center gap-32">
-      <div className="flex flex-col gap-4 items-center gap-16">
+      <div className="flex flex-col items-center gap-16">
         <div className="text-3xl font-semibold">S.</div>
         <Icon
-          icon={"chat"}
+          icon={"icons/chat"}
           height={20}
           width={20}
           customStyle={"bg-orange-200 p-2"}
         />
       </div>
-      <div className="bg-gray-200 p-2 rounded-3xl">
+      <div className="bg-[#F6F6F8] p-2 rounded-3xl">
         <ul className="flex flex-col gap-5 cursor-pointer">
           {navigation.map((val: navigation, index: number) => {
             return (
@@ -82,15 +81,22 @@ export default function SideBar() {
           })}
         </ul>
       </div>
-      <div className="flex flex-col gap-1 items-center gap-16">
-        <div className="text-3xl font-semibold">S.</div>
+      <div className="flex flex-col items-center gap-1">
         <Icon
-          icon={"chat"}
+          icon={"avatars/avatar1"}
+          height={40}
+          width={40}
+          customStyle={"bg-purple-200"}
+        />
+        <Icon
+          icon={"icons/logout"}
           height={20}
           width={20}
-          customStyle={"bg-orange-200 p-2"}
+          customStyle={"bg-[#F6F6F8] p-2"}
         />
       </div>
     </div>
   );
-}
+};
+
+export default SideBar;

@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} grid grid-cols-[6%_74%_20%]`}>
         <SideBar />
-        <main className="bg-green-500 flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="bg-[#F6F5FB] flex min-h-screen flex-col items-center justify-between p-24">
           {children}
         </main>
       </body>
