@@ -1,8 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const BaseCard = (props: any) => {
-  return <div>index</div>;
+interface BaseCard {
+  children: React.ReactNode;
+  isBorder: boolean;
+  customStyle: string;
+}
+
+const BaseCard = (props: BaseCard) => {
+  return (
+    <div
+      className={`${props.isBorder && "border border-gray-300 rounded-xl"} ${
+        props.customStyle
+      }`}
+    >
+      {props.children}
+    </div>
+  );
 };
 
 BaseCard.propTypes = {};

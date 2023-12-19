@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import SideBar from "@/components/SideBar";
+import Panel from "@/components/Panel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <main className="bg-[#F6F5FB] flex min-h-screen flex-col items-center justify-between p-24">
           {children}
         </main>
+        <Panel />
       </body>
     </html>
   );
