@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import BaseCard from "../BaseCard";
+import BaseCard from "@/components/BaseCard";
 
 interface FinancialCard {
   expensePercentage: any;

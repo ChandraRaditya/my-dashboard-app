@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import BaseCard from "../BaseCard";
-import Icon from "../Icon";
+import BaseCard from "@/components/BaseCard";
+import Icon from "@/components/Icon";
 
 interface SpendingData {
   image: string;

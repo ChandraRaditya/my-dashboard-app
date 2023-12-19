@@ -1,7 +1,8 @@
 import React from "react";
-import BaseCard from "../BaseCard";
-import FinancialCard from "../FinancialCard";
-import SpendingCard from "../SpendingCard";
+import BaseCard from "@/components/BaseCard";
+import FinancialCard from "@/components/FinancialCard";
+import SpendingCard from "@/components/SpendingCard";
+import SubscriptionCard from "@/components/SubscriptionCard";
 
 const Panel = () => {
   const spendingData = [
@@ -30,6 +31,7 @@ const Panel = () => {
         incomeTotal={2656}
       />
       <SpendingCard spendingData={spendingData} />
+      <SubscriptionCard />
     </div>
   );
 };
