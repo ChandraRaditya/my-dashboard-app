@@ -25,7 +25,7 @@ const SpendingCard = (props: SpendingCard) => {
           customStyle={"mt-[-2px] cursor-pointer"}
         />
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
         {props.spendingData.map((value, index) => {
           return (
             <div

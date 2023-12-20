@@ -18,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} grid grid-cols-[6%_74%_20%]`}>
+      <body
+        className={`${inter.className} grid grid-cols-[6%_74%_20%] overflow-hidden box-border`}
+      >
         <SideBar />
-        <main className="bg-[#F6F5FB] flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="bg-[#F6F5FB] h-screen py-5 px-10 overflow-y-scroll">
           {children}
         </main>
         <Panel />

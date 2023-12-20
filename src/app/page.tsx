@@ -1,9 +1,85 @@
+import Icon from "@/components/Icon";
+import SubscriptionCard from "@/components/SubscriptionCard";
+import TransactionCard from "@/components/TransactionCard";
 import Image from "next/image";
 
+interface TransactionData {
+  image: string;
+  name: string;
+  date: Date;
+  total: number;
+  detail: "incoming" | "outgoing";
+}
+
 export default function Home() {
+  const transactionData: TransactionData[] = [
+    {
+      image: "avatars/avatar2",
+      name: "Bessie Cooper",
+      date: new Date(),
+      total: 3000,
+      detail: "outgoing",
+    },
+    {
+      image: "avatars/avatar2",
+      name: "Bessie Cooper",
+      date: new Date(),
+      total: 3000,
+      detail: "incoming",
+    },
+    {
+      image: "avatars/avatar2",
+      name: "Bessie Cooper",
+      date: new Date(),
+      total: 3000,
+      detail: "outgoing",
+    },
+    {
+      image: "avatars/avatar2",
+      name: "Bessie Cooper",
+      date: new Date(),
+      total: 3000,
+      detail: "incoming",
+    },
+    {
+      image: "avatars/avatar2",
+      name: "Bessie Cooper",
+      date: new Date(),
+      total: 3000,
+      detail: "incoming",
+    },
+  ];
   return (
-    <div className="bg-[#F6F5FB]">
-      <h1>halaman utama</h1>
+    <div className="grid grid-rows-[80px_auto] h-full items-start">
+      <div className="flex flex-row justify-between items-center bg-blue-500">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-2xl font-bold">Hello, Jhon .D</h1>
+          <div className="font-light">View and control your finances here!</div>
+        </div>
+        <Icon
+          icon={"icons/search"}
+          height={20}
+          width={20}
+          customStyle={"bg-white p-2 cursor-pointer"}
+        />
+      </div>
+      <div className="grid grid-cols-10 grid-rows-[250px_280px_250px] gap-x-10 gap-y-6 h-auto pb-8">
+        <div className="col-span-6">
+          <div className="bg-green-500 h-full rounded-xl"></div>
+        </div>
+        <div className="col-span-4">
+          <div className="bg-green-500 h-full rounded-xl"></div>
+        </div>
+        <div className="col-span-10">
+          <div className="bg-green-500 h-full rounded-xl"></div>
+        </div>
+        <div className="col-span-7">
+          <TransactionCard transactionData={transactionData} />
+        </div>
+        <div className="col-span-3">
+          <div className="bg-green-500 h-full rounded-xl"></div>
+        </div>
+      </div>
     </div>
   );
 }
