@@ -65,7 +65,12 @@ const ActivityCard = () => {
                   className="bg-[#F6F6F8] flex flex-row justify-between p-3 rounded-xl text-xs"
                 >
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="checkbox" name="" id="" />
+                    <input
+                      className="accent-[#4553DC]"
+                      type="checkbox"
+                      name=""
+                      id=""
+                    />
                     <label>{value.item}</label>
                   </div>
                   <Icon

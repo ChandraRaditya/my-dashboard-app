@@ -1,4 +1,5 @@
 import ActivityCard from "@/components/ActivityCard";
+import AnalyticCard from "@/components/AnalyticCard";
 import CreditCard from "@/components/CreditCard";
 import Icon from "@/components/Icon";
 import SubscriptionCard from "@/components/SubscriptionCard";
@@ -85,7 +86,9 @@ export default function Home() {
           <TransactionCard transactionData={transactionData} />
         </div>
         <div className="col-span-3">
-          <div className="bg-green-500 h-full rounded-xl"></div>
+          <div className="h-full">
+            <AnalyticCard />
+          </div>
         </div>
       </div>
     </div>
