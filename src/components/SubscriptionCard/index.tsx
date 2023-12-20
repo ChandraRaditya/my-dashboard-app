@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 
@@ -23,7 +22,7 @@ const SubscriptionCard = () => {
           Update your account to premium to get more features.
         </div>
       </div>
-      <div className="flex flex-row justify-center mt-4 gap-2">
+      <div className="flex flex-row justify-center mt-4">
         <button className="text-base text-gray-200 p-4 rounded-xl grow bg-[#4553DC]">
           Get now
         </button>

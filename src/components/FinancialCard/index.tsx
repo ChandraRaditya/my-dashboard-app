@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
+import formatNumber from "@/utils/formatNumber";
 
 interface FinancialCard {
   expensePercentage: any;
@@ -10,10 +11,6 @@ interface FinancialCard {
 }
 
 const FinancialCard = (props: FinancialCard) => {
-  const formatNumber = (value: number | undefined) => {
-    return new Intl.NumberFormat("id-ID").format(value ?? 0);
-  };
-
   return (
     <BaseCard isBorder={true} customStyle={"px-3 py-5"}>
       <h2 className="mb-4">Expenses and income</h2>

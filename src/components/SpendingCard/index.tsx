@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
+import formatDate from "@/utils/formatDate";
 
 interface SpendingData {
   image: string;
@@ -14,6 +15,7 @@ interface SpendingCard {
 }
 
 const SpendingCard = (props: SpendingCard) => {
+  const { formatFullWithTime } = formatDate();
   return (
     <BaseCard isBorder={true} customStyle={"px-4 py-5"}>
       <div className="flex flex-row justify-between">
@@ -25,7 +27,7 @@ const SpendingCard = (props: SpendingCard) => {
           customStyle={"mt-[-2px] cursor-pointer"}
         />
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
         {props.spendingData.map((value, index) => {
           return (
             <div
@@ -41,7 +43,7 @@ const SpendingCard = (props: SpendingCard) => {
               <div className="flex flex-col justify-center">
                 <div className="text-sm font-medium">{value.detail}</div>
                 <div className="text-xs text-gray-400">
-                  {value.date.toDateString()}
+                  {formatFullWithTime(value.date)}
                 </div>
               </div>
             </div>
