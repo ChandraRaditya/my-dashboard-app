@@ -1,5 +1,6 @@
 import ActivityCard from "@/components/ActivityCard";
 import AnalyticCard from "@/components/AnalyticCard";
+import BalanceCard from "@/components/BalanceCard";
 import CreditCard from "@/components/CreditCard";
 import Icon from "@/components/Icon";
 import SubscriptionCard from "@/components/SubscriptionCard";
@@ -68,7 +69,9 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-10 grid-rows-[250px_280px_250px] gap-x-10 gap-y-6 h-auto pb-8">
         <div className="col-span-6">
-          <div className="bg-green-500 h-full rounded-xl"></div>
+          <div className="h-full">
+            <BalanceCard />
+          </div>
         </div>
         <div className="col-span-4">
           <div className="h-full">

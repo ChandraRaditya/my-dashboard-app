@@ -22,7 +22,7 @@ export default function RootLayout({
         className={`${inter.className} grid grid-cols-[6%_74%_20%] overflow-hidden box-border`}
       >
         <SideBar />
-        <main className="bg-[#F6F5FB] h-screen py-5 px-10 overflow-y-scroll">
+        <main className="bg-[#F6F5FB] h-screen py-5 px-16 overflow-y-scroll">
           {children}
         </main>
         <Panel />

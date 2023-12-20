@@ -23,7 +23,7 @@ const Panel = () => {
     },
   ];
   return (
-    <div className="p-8 flex flex-col gap-6">
+    <div className="p-8 flex flex-col gap-6 h-screen overflow-y-auto">
       <FinancialCard
         expensePercentage={70}
         expenseTotal={5653}

@@ -43,7 +43,7 @@ const AnalyticCard = () => {
         />
       </div>
       <div className="flex flex-col-reverse items-center relative h-[80%]">
-        <div className="h-[250px] absolute top-[-70px]">
+        <div className="min-h-[220px] absolute top-[-60px]">
           <Doughnut data={data} />
         </div>
         <div className="absolute bottom-12 z-10 flex flex-col gap-2">
