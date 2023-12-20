@@ -2,6 +2,7 @@ import React from "react";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 import formatNumber from "@/utils/formatNumber";
+import formatDate from "@/utils/formatDate";
 
 interface TransactionData {
   image: string;
@@ -15,6 +16,7 @@ interface TransactionCard {
   transactionData: TransactionData[];
 }
 const TransactionCard = (props: TransactionCard) => {
+  const { formatDayMonthYear } = formatDate();
   return (
     <BaseCard isBorder={true} customStyle={"px-4 py-5 h-full overflow-hidden"}>
       <div className="flex flex-row justify-between pb-3 border-b border-gray-300">
@@ -41,14 +43,14 @@ const TransactionCard = (props: TransactionCard) => {
                 <div className="flex flex-col justify-center gap-1">
                   <div className="text-xs font-medium">{value.name}</div>
                   <div className="text-[10px] text-gray-400">
-                    {value.date.toDateString()}
+                    {formatDayMonthYear(value.date)}
                   </div>
                 </div>
               </div>
               <div className="flex flex-row justify-end items-center gap-4 grow">
                 <div className="text-sm font-medium">{`${
                   value.detail == "incoming" ? "+" : "-"
-                }$${formatNumber(value.total)}`}</div>
+                }$${formatNumber(value.total).replace(".", ",")}`}</div>
                 <Icon
                   icon={"icons/option"}
                   height={20}

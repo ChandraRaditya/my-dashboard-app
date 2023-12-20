@@ -1,3 +1,4 @@
+import CreditCard from "@/components/CreditCard";
 import Icon from "@/components/Icon";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import TransactionCard from "@/components/TransactionCard";
@@ -68,7 +69,13 @@ export default function Home() {
           <div className="bg-green-500 h-full rounded-xl"></div>
         </div>
         <div className="col-span-4">
-          <div className="bg-green-500 h-full rounded-xl"></div>
+          <div className="h-full">
+            <CreditCard
+              name={"Jhon Demon"}
+              cardNumber={"21239838"}
+              expiredDate={new Date()}
+            />
+          </div>
         </div>
         <div className="col-span-10">
           <div className="bg-green-500 h-full rounded-xl"></div>
