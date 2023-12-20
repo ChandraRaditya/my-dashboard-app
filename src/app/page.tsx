@@ -1,3 +1,4 @@
+import ActivityCard from "@/components/ActivityCard";
 import CreditCard from "@/components/CreditCard";
 import Icon from "@/components/Icon";
 import SubscriptionCard from "@/components/SubscriptionCard";
@@ -52,7 +53,7 @@ export default function Home() {
   ];
   return (
     <div className="grid grid-rows-[80px_auto] h-full items-start">
-      <div className="flex flex-row justify-between items-center bg-blue-500">
+      <div className="flex flex-row justify-between items-center">
         <div className="flex flex-col gap-4">
           <h1 className="text-2xl font-bold">Hello, Jhon .D</h1>
           <div className="font-light">View and control your finances here!</div>
@@ -78,7 +79,7 @@ export default function Home() {
           </div>
         </div>
         <div className="col-span-10">
-          <div className="bg-green-500 h-full rounded-xl"></div>
+          <ActivityCard />
         </div>
         <div className="col-span-7">
           <TransactionCard transactionData={transactionData} />

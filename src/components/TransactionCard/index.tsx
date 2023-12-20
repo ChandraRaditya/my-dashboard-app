@@ -18,7 +18,10 @@ interface TransactionCard {
 const TransactionCard = (props: TransactionCard) => {
   const { formatDayMonthYear } = formatDate();
   return (
-    <BaseCard isBorder={true} customStyle={"px-4 py-5 h-full overflow-hidden"}>
+    <BaseCard
+      isBorder={false}
+      customStyle={"px-4 py-5 h-full overflow-hidden bg-white rounded-xl"}
+    >
       <div className="flex flex-row justify-between pb-3 border-b border-gray-300">
         <h2 className="text-sm">Last transactions</h2>
         <div className="flex flex-row gap-6 text-xs text-gray-500">
