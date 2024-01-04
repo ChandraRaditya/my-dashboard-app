@@ -38,7 +38,7 @@ const TransactionCard = (props: TransactionCard) => {
             >
               <div className="flex flex-row gap-4 grow">
                 <Icon
-                  icon={"avatars/avatar1"}
+                  icon={value.image}
                   height={40}
                   width={40}
                   customStyle={"bg-purple-200"}

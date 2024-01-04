@@ -4,7 +4,7 @@ import BaseCard from "@/components/BaseCard";
 import formatNumber from "@/utils/formatNumber";
 
 interface FinancialCard {
-  expensePercentage: any;
+  expensePercentage: number;
   expenseTotal: number;
   incomePercentage: number;
   incomeTotal: number;
