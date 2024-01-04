@@ -28,6 +28,68 @@ const AnalyticCard = () => {
     ],
   };
 
+  const circularOptions = {
+    responsive: true,
+  };
+
+  const cirucularPlugins = [
+    {
+      id: "roundedDoughnoutChartjs",
+      afterUpdate: function (chart: any) {
+        const arcs = chart.getDatasetMeta(0).data;
+
+        arcs.forEach(function (arc: any) {
+          arc.round = {
+            x: (chart.chartArea.left + chart.chartArea.right) / 2,
+            y: chart.chartArea.top + chart.chartArea.bottom - 66,
+            radius: (arc.outerRadius + arc.innerRadius) / 2,
+            thickness: (arc.outerRadius - arc.innerRadius) / 2,
+            backgroundColor: arc.options.backgroundColor,
+          };
+        });
+      },
+      afterDraw: (chart: any) => {
+        const { ctx, canvas } = chart;
+
+        chart.getDatasetMeta(0).data.forEach((arc: any) => {
+          const startAngle = Math.PI / 2 - arc.startAngle;
+          const endAngle = Math.PI / 2 - arc.endAngle;
+
+          if (arc.options.backgroundColor == "rgb(69, 8, 220, 1)") {
+            // Calculate positions for start
+            const startX = arc.round.radius * Math.sin(startAngle);
+            const startY = arc.round.radius * Math.cos(startAngle);
+
+            // Draw rounded edge at the start for background rgb(69, 8, 220, 1)
+            ctx.save();
+            ctx.translate(arc.round.x, arc.round.y);
+            ctx.fillStyle = arc.options.backgroundColor;
+            ctx.beginPath();
+            ctx.arc(startX, startY, arc.round.thickness, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+          }
+
+          ctx.save();
+          ctx.translate(arc.round.x, arc.round.y);
+          ctx.fillStyle = arc.options.backgroundColor;
+          ctx.beginPath();
+          ctx.arc(
+            arc.round.radius * Math.sin(endAngle),
+            arc.round.radius * Math.cos(endAngle),
+            arc.round.thickness,
+            0,
+            2 * Math.PI,
+          );
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        });
+      },
+    },
+  ];
+
   return (
     <BaseCard
       isBorder={false}
@@ -43,8 +105,12 @@ const AnalyticCard = () => {
         />
       </div>
       <div className="flex flex-col-reverse items-center relative h-[80%]">
-        <div className="min-h-[220px] absolute top-[-60px]">
-          <Doughnut data={data} />
+        <div className="min-h-[220px] absolute top-[-60px] scale-[90%]">
+          <Doughnut
+            data={data}
+            plugins={cirucularPlugins}
+            options={circularOptions}
+          />
         </div>
         <div className="absolute bottom-12 z-10 flex flex-col gap-2">
           <div className="text-lg font-semibold">90%</div>
