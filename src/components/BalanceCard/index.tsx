@@ -13,6 +13,10 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
+  Scale,
+  Tick,
+  CoreScaleOptions,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
 
@@ -64,7 +68,7 @@ const BalanceCard = () => {
     },
   };
 
-  const optionsBarChart = {
+  const optionsBarChart: ChartOptions<any> = {
     responsive: true,
     scales: {
       x: {
@@ -77,7 +81,14 @@ const BalanceCard = () => {
           display: false, // Hide y-axis grid lines
         },
         ticks: {
-          callback: (value: number) => "$" + value,
+          callback: function (
+            this: Scale<CoreScaleOptions>,
+            tickValue: number | string,
+            index: number,
+            ticks: Tick[],
+          ) {
+            return `$${tickValue}`;
+          },
         },
       },
     },
@@ -153,7 +164,7 @@ const BalanceCard = () => {
         </div>
         <div className="flex flex-row justify-center">
           <div className="pl-4 h-[190px] min-w-[231px] max-w-[800px] mt-[8px]">
-            <Bar options={optionsBarChart as any} data={dataBarChart} />
+            <Bar options={optionsBarChart} data={dataBarChart} />
           </div>
         </div>
       </div>

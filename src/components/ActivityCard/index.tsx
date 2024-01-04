@@ -4,10 +4,20 @@ import React, { useRef, useState } from "react";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 
+interface ShoppingItem {
+  item: string;
+  isChecked: boolean;
+}
+
+interface ChatMessage {
+  user: string;
+  text: string;
+}
+
 const ActivityCard = () => {
   const [input, setInput] = useState("");
   const divRef = useRef<HTMLDivElement>(null);
-  const [message, setMessage] = useState([
+  const [message, setMessage] = useState<Array<ChatMessage>>([
     {
       user: "me",
       text: "Are you ready?",
@@ -17,6 +27,7 @@ const ActivityCard = () => {
       text: "I have prepared everything",
     },
   ]);
+
   const items = [
     {
       item: "Macbook",
@@ -88,7 +99,7 @@ const ActivityCard = () => {
             </button>
           </div>
           <div className="grid grid-cols-2 grid-rows-2 gap-2 mt-1">
-            {items.map((value: any, index: number) => {
+            {items.map((value: ShoppingItem, index: number) => {
               return (
                 <div
                   key={index}
@@ -117,7 +128,7 @@ const ActivityCard = () => {
         <div className="px-4 py-4 flex flex-col">
           <div className="mb-4">Esther Howard</div>
           <div className="flex flex-col gap-2 h-[120px] h-max-[120px] overflow-y-scroll text-xs pb-6">
-            {message.map((value: any, index: number) => {
+            {message.map((value: ChatMessage, index: number) => {
               const isMe = value.user == "me";
               return (
                 <div
