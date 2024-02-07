@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Icon from "@/components/Icon";
+import "./index.scss";
 
 interface navigation {
   id: number;
@@ -52,18 +53,18 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="py-5 flex flex-col items-center gap-32">
-      <div className="flex flex-col items-center gap-16">
-        <div className="text-3xl font-semibold">S.</div>
+    <div className="sidebar">
+      <div className="sidebar__container-username">
+        <div className="sidebar__username">S.</div>
         <Icon
           icon={"icons/chat"}
           height={20}
           width={20}
-          customStyle={"bg-orange-200 p-2"}
+          customStyle={"sidebar__username-icon"}
         />
       </div>
-      <div className="bg-[#F6F6F8] p-2 rounded-3xl">
-        <ul className="flex flex-col gap-5 cursor-pointer">
+      <div className="sidebar__container-navigation">
+        <ul className="sidebar__navigation-list">
           {navigation.map((val: navigation, index: number) => {
             return (
               <li key={index} onClick={() => setActive(val.id)}>
@@ -73,27 +74,29 @@ const SideBar = () => {
                   height={20}
                   width={20}
                   customStyle={`${
-                    val.id == active ? "bg-[#4553dc]" : ""
-                  } transition delay-150 duration-500 ease-in-out p-2`}
+                    val.id == active ? "sidebar__navigation-item--active" : ""
+                  } sidebar__navigation-item`}
                 />
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="flex flex-col items-center gap-1">
+      <div className="sidebar__container-logout">
         <Icon
           icon={"avatars/avatar1"}
           height={40}
           width={40}
-          customStyle={"bg-purple-200"}
+          customStyle={"sidebar__user-logo"}
         />
-        <Icon
-          icon={"icons/logout"}
-          height={20}
-          width={20}
-          customStyle={"bg-[#F6F6F8] p-2"}
-        />
+        <button className="button--logout">
+          <Icon
+            icon={"icons/logout"}
+            height={20}
+            width={20}
+            customStyle={"sidebar__logout-icon"}
+          />
+        </button>
       </div>
     </div>
   );
