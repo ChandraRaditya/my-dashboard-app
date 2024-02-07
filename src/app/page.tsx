@@ -5,7 +5,7 @@ import CreditCard from "@/components/CreditCard";
 import Icon from "@/components/Icon";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import TransactionCard from "@/components/TransactionCard";
-import Image from "next/image";
+import "@/styles/page.scss";
 
 interface TransactionData {
   image: string;
@@ -54,27 +54,29 @@ export default function Home() {
     },
   ];
   return (
-    <div className="grid grid-rows-[80px_auto] h-full items-start">
-      <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Hello, Jhon .D</h1>
-          <div className="font-light">View and control your finances here!</div>
+    <div className="home-page">
+      <div className="home-page__container-top">
+        <div className="home-page__container-infromation">
+          <h1 className="home-page__greeting">Hello, Jhon .D</h1>
+          <div className="home-page__information-text">
+            View and control your finances here!
+          </div>
         </div>
         <Icon
           icon={"icons/search"}
           height={20}
           width={20}
-          customStyle={"bg-white p-2 cursor-pointer"}
+          customStyle={"home-page__search"}
         />
       </div>
-      <div className="grid grid-cols-10 grid-rows-[250px_280px_250px] gap-x-10 gap-y-6 h-auto pb-8">
-        <div className="col-span-6">
-          <div className="h-full">
+      <div className="home-page__container-content">
+        <div className="home-page__grid-balance">
+          <div className="home-page__card-container">
             <BalanceCard />
           </div>
         </div>
-        <div className="col-span-4">
-          <div className="h-full">
+        <div className="home-page__grid-credit">
+          <div className="home-page__card-container">
             <CreditCard
               name={"Jhon Demon"}
               cardNumber={"21239838"}
@@ -82,14 +84,18 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="col-span-10">
-          <ActivityCard />
+        <div className="home-page__grid-activity">
+          <div className="home-page__card-container">
+            <ActivityCard />
+          </div>
         </div>
-        <div className="col-span-7">
-          <TransactionCard transactionData={transactionData} />
+        <div className="home-page__grid-transaction">
+          <div className="home-page__card-container">
+            <TransactionCard transactionData={transactionData} />
+          </div>
         </div>
-        <div className="col-span-3">
-          <div className="h-full">
+        <div className="home-page__grid-analytic">
+          <div className="home-page__card-container">
             <AnalyticCard />
           </div>
         </div>
