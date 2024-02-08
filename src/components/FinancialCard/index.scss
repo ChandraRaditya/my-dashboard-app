@@ -1,0 +1,79 @@
+.financial-card {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__section-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__percentage {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__number {
+    font-size: 10px;
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  &__label-section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+  }
+
+  &__label-line {
+    height: 1rem;
+    width: 0;
+    margin: 0 auto;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(156 163 175 / var(--tw-border-opacity));
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__section-chart {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+  }
+
+  &__chart {
+    border-radius: 3px;
+    height: 1rem;
+
+    &--blue {
+      --tw-bg-opacity: 1;
+      background-color: rgb(69 83 220 / var(--tw-bg-opacity));
+    }
+
+    &--yellow {
+      --tw-bg-opacity: 1;
+      background-color: rgb(255 156 49 / var(--tw-bg-opacity));
+    }
+  }
+}

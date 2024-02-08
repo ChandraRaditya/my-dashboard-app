@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 import formatDate from "@/utils/formatDate";
+import "./index.scss";
 
 interface SpendingData {
   image: string;
@@ -17,32 +17,31 @@ interface SpendingCard {
 const SpendingCard = (props: SpendingCard) => {
   const { formatFullWithTime } = formatDate();
   return (
-    <BaseCard isBorder={true} customStyle={"px-4 py-5"}>
-      <div className="flex flex-row justify-between">
-        <h2 className="mb-4">Latest spending</h2>
-        <Icon
-          icon={"icons/option"}
-          height={20}
-          width={20}
-          customStyle={"mt-[-2px] cursor-pointer"}
-        />
+    <BaseCard isBorder={true} customStyle={"spending-card"}>
+      <div className="spending-card__container-top">
+        <h2 className="spending-card__title">Latest spending</h2>
+        <button className="spending-card__button-more">
+          <Icon
+            icon={"icons/option"}
+            height={20}
+            width={20}
+            customStyle={"spending-card__button-more-icon"}
+          />
+        </button>
       </div>
-      <div className="flex flex-col">
+      <div className="spending-card__container-list">
         {props.spendingData.map((value, index) => {
           return (
-            <div
-              key={index}
-              className="flex flex-row gap-4 py-3 border-b border-gray-200 last:border-0"
-            >
+            <div key={index} className="spending-card__list">
               <Icon
                 icon={value.image}
                 height={40}
                 width={40}
-                customStyle={"bg-blue-200 p-2"}
+                customStyle={"spending-card__icon"}
               />
-              <div className="flex flex-col justify-center">
-                <div className="text-sm font-medium">{value.detail}</div>
-                <div className="text-xs text-gray-400">
+              <div className="spending-card__section-detail">
+                <div className="spending-card__item-title">{value.detail}</div>
+                <div className="spending-card__item-date">
                   {formatFullWithTime(value.date)}
                 </div>
               </div>
@@ -50,8 +49,8 @@ const SpendingCard = (props: SpendingCard) => {
           );
         })}
       </div>
-      <div className="flex flex-row justify-center mt-4 gap-2">
-        <button className="text-sm text-[#4553DC]">View all</button>
+      <div className="spending-card__container-bottom">
+        <button className="spending-card__button-view">View all</button>
         <Icon
           icon={"icons/arrow-blue"}
           height={20}

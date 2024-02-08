@@ -1,12 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  /* --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
-}
+@import "normalize.scss";
 
 html,
 body,
@@ -131,4 +123,21 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 6% 74% 20%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .main-content {
+    background-color: #f6f5fb;
+    height: 100vh;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    overflow-y: scroll;
+  }
 }

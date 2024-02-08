@@ -19,6 +19,7 @@ import {
   CoreScaleOptions,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
+import "./index.scss";
 
 ChartJS.register(
   CategoryScale,
@@ -114,13 +115,10 @@ const BalanceCard = () => {
   };
 
   return (
-    <BaseCard
-      isBorder={false}
-      customStyle={"px-4 py-5 bg-white rounded-xl h-full"}
-    >
-      <div className="flex flex-row justify-between">
-        <h2 className="text-sm">Balance statistics</h2>
-        <button className="bg-[#F6F6F8] p-2 flex flex-row gap-3 rounded-xl text-xs items-center">
+    <BaseCard isBorder={false} customStyle={"balance-card"}>
+      <div className="balance-card__container-top">
+        <h2 className="balance-card__title">Balance statistics</h2>
+        <button className="balance-card__filter-button">
           <div>Filter</div>
           <Icon
             icon={"icons/arrow-down"}
@@ -130,40 +128,40 @@ const BalanceCard = () => {
           />
         </button>
       </div>
-      <div className="grid grid-cols-[20%_80%]">
-        <div className="flex flex-col gap-2">
-          <div className="text-2xl font-semibold">$564</div>
-          <div className="flex flex-row gap-2 pb-3 border-b border-gray-300">
+      <div className="balance-card__container-balance">
+        <div className="balance-card__balance-section">
+          <div className="balance-card__balance">$564</div>
+          <div className="balance-card__information-balance">
             <Icon
               icon={"illustrations/money"}
               height={50}
               width={50}
               customStyle={""}
             />
-            <div className="text-[12px] leading-4 w-[80px]">
+            <div className="balance-card__balance-label">
               Your total balance
             </div>
           </div>
-          <div className="flex flex-row justify-between">
-            <div className="grow h-[40px] scale-75">
+          <div className="chart-line">
+            <div className="chart-line__section">
               <Line options={optionLineChart} data={dataLineChart} />
             </div>
-            <div className="flex flex-row gap-1 items-center">
+            <div className="chart-line__information">
               <Icon
                 icon={"icons/arrow-up"}
                 height={14}
                 width={14}
                 customStyle={""}
               />
-              <div className="text-[10px] mr-3">6%</div>
+              <div className="chart-line__percentage">6%</div>
             </div>
           </div>
-          <div className="text-[10px] text-gray-400">
+          <div className="chart-line__label">
             Always see your earnings updates
           </div>
         </div>
-        <div className="flex flex-row justify-center">
-          <div className="pl-4 h-[190px] min-w-[231px] max-w-[800px] mt-[8px]">
+        <div className="chart-bar">
+          <div className="chart-bar__section">
             <Bar options={optionsBarChart} data={dataBarChart} />
           </div>
         </div>

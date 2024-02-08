@@ -1,0 +1,56 @@
+.subscription-card {
+  padding: 1.25rem 1rem;
+
+  &__container-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &__container-image {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__container-label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label-top {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+
+  &__label-bottom {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  &__container-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  &__button {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity));
+    padding: 1rem;
+    border-radius: 0.75rem;
+    flex-grow: 1;
+    --tw-bg-opacity: 1;
+    background-color: rgb(69 83 220 / var(--tw-bg-opacity));
+  }
+}

@@ -1,0 +1,56 @@
+.credit-card {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  height: 100%;
+  background-color: #4553dc;
+  border-radius: 0.75rem;
+  position: relative;
+
+  &__container-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    height: 100%;
+    padding-bottom: 1.25rem;
+  }
+
+  &__section-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+  }
+
+  &__section-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__expiration-date {
+    align-self: flex-end;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

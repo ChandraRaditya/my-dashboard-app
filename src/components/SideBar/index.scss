@@ -1,0 +1,69 @@
+.sidebar {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+
+  &__container-username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__username {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+  }
+
+  &__username-icon {
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 215 170 / var(--tw-bg-opacity));
+    padding: 0.5rem;
+  }
+
+  &__container-navigation {
+    background-color: rgba(246, 246, 248, 1);
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+  }
+
+  &__navigation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    cursor: pointer;
+  }
+
+  &__navigation-item {
+    transition: all 500ms ease-in-out 150ms;
+    padding: 0.5rem;
+  }
+
+  &__navigation-item--active {
+    background-color: #4553dc;
+  }
+
+  &__container-logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__user-logo {
+    background-color: #c4b5fd;
+  }
+
+  .button--logout {
+    padding: 2px;
+  }
+
+  &__logout-icon {
+    background-color: #f6f6f8;
+    padding: 0.5rem;
+  }
+}

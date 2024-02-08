@@ -1,0 +1,100 @@
+.transaction-card {
+  padding: 1.25rem 1rem;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+
+  &__container-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #d1d5db;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &__container-order {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+  }
+
+  &__button-order {
+    text-decoration-line: underline;
+  }
+
+  &__container-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    padding-bottom: 2.5rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #d1d5db;
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-grow: 1;
+  }
+
+  &__icon {
+    --tw-bg-opacity: 1;
+    background-color: rgb(233 213 255 / var(--tw-bg-opacity));
+  }
+
+  &__section-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  &__item-name {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+  }
+
+  &__item-date {
+    font-size: 10px;
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  &__item-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+  }
+
+  &__item-label {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+  }
+
+  &__item-option {
+    cursor: pointer;
+  }
+}
