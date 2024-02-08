@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import "./index.scss";
 
 interface props {
   icon: string;
@@ -10,12 +11,9 @@ interface props {
 }
 const Icon: React.FC<props> = (props) => {
   return (
-    <div className={`rounded-full ${props.customStyle} text-white`}>
+    <div className={`${props.customStyle} icon`}>
       <Image
-        className={`${
-          props.isActive &&
-          "transition delay-150 duration-500 ease-in-out dark:invert"
-        }`}
+        className={`${props.isActive && "icon__image"}`}
         src={require(`@/assets/${props.icon}.svg`)}
         width={props.width}
         height={props.height}

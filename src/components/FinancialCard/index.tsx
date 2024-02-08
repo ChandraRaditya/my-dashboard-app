@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
 import formatNumber from "@/utils/formatNumber";
 import "./index.scss";

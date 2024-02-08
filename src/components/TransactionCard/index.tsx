@@ -3,6 +3,7 @@ import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 import formatNumber from "@/utils/formatNumber";
 import formatDate from "@/utils/formatDate";
+import "./index.scss";
 
 interface TransactionData {
   image: string;
@@ -18,47 +19,43 @@ interface TransactionCard {
 const TransactionCard = (props: TransactionCard) => {
   const { formatDayMonthYear } = formatDate();
   return (
-    <BaseCard
-      isBorder={false}
-      customStyle={"px-4 py-5 h-full overflow-hidden bg-white rounded-xl"}
-    >
-      <div className="flex flex-row justify-between pb-3 border-b border-gray-300">
-        <h2 className="text-sm">Last transactions</h2>
-        <div className="flex flex-row gap-6 text-xs text-gray-500">
-          <button className="underline">Newest</button>
-          <button className="underline">Oldest</button>
+    <BaseCard isBorder={false} customStyle={"transaction-card"}>
+      <div className="transaction-card__container-top">
+        <h2 className="transaction-card__title">Last transactions</h2>
+        <div className="transaction-card__container-order">
+          <button className="transaction-card__button-order">Newest</button>
+          <button className="transaction-card__button-order">Oldest</button>
         </div>
       </div>
-      <div className="flex flex-col overflow-y-scroll h-full pb-10">
+      <div className="transaction-card__container-list">
         {props.transactionData.map((value, index) => {
           return (
-            <div
-              key={index}
-              className="flex flex-row py-3 border-b border-gray-300"
-            >
-              <div className="flex flex-row gap-4 grow">
+            <div key={index} className="transaction-card__item">
+              <div className="transaction-card__item-content">
                 <Icon
                   icon={value.image}
                   height={40}
                   width={40}
-                  customStyle={"bg-purple-200"}
+                  customStyle={"transaction-card__icon"}
                 />
-                <div className="flex flex-col justify-center gap-1">
-                  <div className="text-xs font-medium">{value.name}</div>
-                  <div className="text-[10px] text-gray-400">
+                <div className="transaction-card__section-detail">
+                  <div className="transaction-card__item-name">
+                    {value.name}
+                  </div>
+                  <div className="transaction-card__item-date">
                     {formatDayMonthYear(value.date)}
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row justify-end items-center gap-4 grow">
-                <div className="text-sm font-medium">{`${
+              <div className="transaction-card__item-cost">
+                <div className="transaction-card__item-label">{`${
                   value.detail == "incoming" ? "+" : "-"
                 }$${formatNumber(value.total).replace(".", ",")}`}</div>
                 <Icon
                   icon={"icons/option"}
                   height={20}
                   width={20}
-                  customStyle={"cursor-pointer"}
+                  customStyle={"transaction-card__item-option"}
                 />
               </div>
             </div>

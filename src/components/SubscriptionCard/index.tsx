@@ -1,14 +1,15 @@
 import React from "react";
 import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
+import "./index.scss";
 
 const SubscriptionCard = () => {
   return (
-    <BaseCard isBorder={true} customStyle={"px-4 py-5"}>
-      <div className="flex flex-row justify-center">
-        <h2 className="text-sm">Go to premium</h2>
+    <BaseCard isBorder={true} customStyle={"subscription-card"}>
+      <div className="subscription-card__container-top">
+        <h2 className="subscription-card__title">Go to premium</h2>
       </div>
-      <div className="flex flex-row">
+      <div className="subscription-card__container-image">
         <Icon
           icon={"illustrations/subscribe"}
           height={100}
@@ -16,16 +17,14 @@ const SubscriptionCard = () => {
           customStyle={""}
         />
       </div>
-      <div className="flex flex-col">
-        <div className="text-lg font-semibold">Need more features?</div>
-        <div className="text-sm text-gray-400">
+      <div className="subscription-card__container-label">
+        <div className="subscription-card__label-top">Need more features?</div>
+        <div className="subscription-card__label-bottom">
           Update your account to premium to get more features.
         </div>
       </div>
-      <div className="flex flex-row justify-center mt-4">
-        <button className="text-base text-gray-200 p-4 rounded-xl grow bg-[#4553DC]">
-          Get now
-        </button>
+      <div className="subscription-card__container-button">
+        <button className="subscription-card__button">Get now</button>
       </div>
     </BaseCard>
   );

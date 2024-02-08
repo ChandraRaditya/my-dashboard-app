@@ -1,8 +1,8 @@
 import React from "react";
-import BaseCard from "@/components/BaseCard";
 import FinancialCard from "@/components/FinancialCard";
 import SpendingCard from "@/components/SpendingCard";
 import SubscriptionCard from "@/components/SubscriptionCard";
+import "./index.scss";
 
 const Panel = () => {
   const spendingData = [
@@ -23,7 +23,7 @@ const Panel = () => {
     },
   ];
   return (
-    <div className="p-8 flex flex-col gap-6 h-screen overflow-y-auto">
+    <div className="panel">
       <FinancialCard
         expensePercentage={70}
         expenseTotal={5653}
