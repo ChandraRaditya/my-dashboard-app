@@ -5,6 +5,7 @@ import BaseCard from "@/components/BaseCard";
 import Icon from "@/components/Icon";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import "./index.scss";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -91,42 +92,36 @@ const AnalyticCard = () => {
   ];
 
   return (
-    <BaseCard
-      isBorder={false}
-      customStyle={"px-4 py-5 bg-white rounded-xl h-full"}
-    >
-      <div className="flex flex-row justify-between">
-        <h2 className="mb-4">Analytic</h2>
-        <Icon
-          icon={"icons/option"}
-          height={20}
-          width={20}
-          customStyle={"mt-[-2px] cursor-pointer"}
-        />
+    <BaseCard isBorder={false} customStyle={"analytic-card"}>
+      <div className="analytic-card__container-top">
+        <h2 className="analytic-card__title">Analytic</h2>
+        <div className="analytic-card__button--option">
+          <Icon icon={"icons/option"} height={20} width={20} customStyle={""} />
+        </div>
       </div>
-      <div className="flex flex-col-reverse items-center relative h-[80%]">
-        <div className="min-h-[220px] absolute top-[-60px] scale-[90%]">
+      <div className="analytic-card__container-chart">
+        <div className="analytic-card__section-chart">
           <Doughnut
             data={data}
             plugins={cirucularPlugins}
             options={circularOptions}
           />
         </div>
-        <div className="absolute bottom-12 z-10 flex flex-col gap-2">
-          <div className="text-lg font-semibold">90%</div>
-          <div className="text-xs text-gray-400">Done</div>
+        <div className="analytic-card__section-progress">
+          <div className="analytic-card__precentage">90%</div>
+          <div className="analytic-card__status">Done</div>
         </div>
-        <div className="w-full flex flex-row gap-4 justify-center text-xs text-gray-400">
-          <div className="flex flex-row items-center gap-2">
-            <div className="bg-[#4553DC] w-2 h-2 rounded-xl mb-[2px]" />
+        <div className="analytic-card__section-label">
+          <div className="analytic-card__container-label">
+            <div className="analytic-card__label-icon" />
             <div>Done</div>
           </div>
-          <div className="flex flex-row items-center gap-2">
-            <div className="bg-[#FF9C31] w-2 h-2 rounded-xl mb-[2px]" />
+          <div className="analytic-card__container-label">
+            <div className="analytic-card__label-icon analytic-card__label-icon--orange" />
             <div>In progress</div>
           </div>
-          <div className="flex flex-row items-center gap-2">
-            <div className="bg-[#E75A4A] w-2 h-2 rounded-xl mb-[2px]" />
+          <div className="analytic-card__container-label">
+            <div className="analytic-card__label-icon--red analytic-card__label-icon" />
             <div>To do</div>
           </div>
         </div>
