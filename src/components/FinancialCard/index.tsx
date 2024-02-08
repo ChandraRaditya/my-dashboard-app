@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import BaseCard from "@/components/BaseCard";
 import formatNumber from "@/utils/formatNumber";
+import "./index.scss";
 
 interface FinancialCard {
   expensePercentage: number;
@@ -12,38 +13,40 @@ interface FinancialCard {
 
 const FinancialCard = (props: FinancialCard) => {
   return (
-    <BaseCard isBorder={true} customStyle={"px-3 py-5"}>
-      <h2 className="mb-4">Expenses and income</h2>
-      <div className="flex flex-row justify-between text-xs">
-        <div className="flex flex-col">
+    <BaseCard isBorder={true} customStyle={"financial-card"}>
+      <h2 className="financial-card__title">Expenses and income</h2>
+      <div className="financial-card__section-information">
+        <div className="financial-card__category">
           <div>Expense</div>
-          <div className="text-sm font-semibold">
+          <div className="financial-card__percentage">
             {props.expensePercentage}%
           </div>
-          <div className="text-[10px] text-gray-400">
+          <div className="financial-card__number">
             {formatNumber(props.expenseTotal ?? 0)}
           </div>
         </div>
-        <div className="flex flex-col mr-[5px]">
-          <div className="h-4 w-0 mx-auto border-x border-gray-400" />
+        <div className="financial-card__label-section">
+          <div className="financial-card__label-line" />
           <div>vs</div>
-          <div className="h-4 w-0 mx-auto border-x border-gray-400" />
+          <div className="financial-card__label-line" />
         </div>
-        <div className="flex flex-col">
+        <div className="financial-card__category">
           <div>Income</div>
-          <div className="text-sm font-semibold">{props.incomePercentage}%</div>
-          <div className="text-[10px] text-gray-400">
+          <div className="financial-card__percentage">
+            {props.incomePercentage}%
+          </div>
+          <div className="financial-card__number">
             {formatNumber(props.incomeTotal ?? 0)}
           </div>
         </div>
       </div>
-      <div className="flex flex-row gap-2 justify-between mt-3">
+      <div className="financial-card__section-chart">
         <div
-          className="rounded-[3px] h-4 bg-[#4553DC]"
+          className="financial-card__chart financial-card__chart--blue"
           style={{ flexBasis: `${props.expensePercentage}%` }}
         />
         <div
-          className="rounded-[3px] h-4 bg-[#FF9C31] !basis-[${props.incomePercentage}%]"
+          className="financial-card__chart financial-card__chart--yellow"
           style={{ flexBasis: `${props.incomePercentage}%` }}
         />
       </div>
