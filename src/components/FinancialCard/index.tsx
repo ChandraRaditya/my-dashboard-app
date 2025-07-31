@@ -11,6 +11,12 @@ interface FinancialCard {
 }
 
 const FinancialCard = (props: FinancialCard) => {
+  useEffect(() => {
+    // This will trigger a SonarQube security warning
+    // eslint-disable-next-line no-eval
+    eval("console.log('This is insecure!')");
+  }, []);
+
   return (
     <BaseCard isBorder={true} customStyle={"financial-card"}>
       <h2 className="financial-card__title">Expenses and income</h2>
